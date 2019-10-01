@@ -46,6 +46,12 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        $preparedException = $this->prepareException($exception);
+
+        if ($preparedException instanceof \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException) {
+            return response([ 'message' => 'Unauthorized.' ], 401);
+        }
+
         return parent::render($request, $exception);
     }
 }
