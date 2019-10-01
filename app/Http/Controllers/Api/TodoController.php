@@ -16,7 +16,7 @@ class TodoController extends Controller
      */
     public function index(Request $request)
     {
-        return $request->user()->todos()->paginate();
+        return $request->user()->todos()->orderBy('id', 'DESC')->paginate();
     }
 
     /**
