@@ -1,0 +1,12 @@
+{
+    "platform": "laravel",
+    "laravel": {
+        "configCache": true,
+        "routeCache": true,
+        "buildAssets": true,
+        "postBuildCommands": [
+            "chgrp -R www-data bootstrap/cache",
+            "chmod -R ug+rwx bootstrap/cache"
+        ]
+    }
+}
